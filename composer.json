@@ -19,5 +19,8 @@
         "psr-4": {
             "DustinLeblanc\\Autoprefixer\\": "src/"
         }
+    },
+    "require": {
+        "sabberworm/php-css-parser": "^7.0"
     }
 }

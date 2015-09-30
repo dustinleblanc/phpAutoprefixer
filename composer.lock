@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fb0f6eb9726f4131fb619697fd15e908",
-    "packages": [],
+    "hash": "5780c45bcb9cecc786acd0ea787b1f99",
+    "packages": [
+        {
+            "name": "sabberworm/php-css-parser",
+            "version": "7.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sabberworm/PHP-CSS-Parser.git",
+                "reference": "1e0b1faadd4a75c22ef90e7be57e04e38e59f6cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/1e0b1faadd4a75c22ef90e7be57e04e38e59f6cf",
+                "reference": "1e0b1faadd4a75c22ef90e7be57e04e38e59f6cf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Sabberworm\\CSS": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raphael Schweikert"
+                }
+            ],
+            "description": "Parser for CSS Files written in PHP",
+            "homepage": "http://www.sabberworm.com/blog/2010/6/10/php-css-parser",
+            "keywords": [
+                "css",
+                "parser",
+                "stylesheet"
+            ],
+            "time": "2015-08-24 09:08:39"
+        }
+    ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
