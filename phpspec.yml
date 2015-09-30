@@ -1,0 +1,4 @@
+suites:
+    php_autoprefixer:
+        namespace: DustinLeblanc\Autoprefixer
+        psr4_prefix: DustinLeblanc\Autoprefixer

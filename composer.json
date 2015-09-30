@@ -1,0 +1,23 @@
+{
+    "name": "DustinLeblanc/PhpAutoprefixer",
+    "description": "CSS Autoprefixer for node",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dustin LeBlanc",
+            "email": "dustin.m.leblanc@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpspec/phpspec": "~2.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-4": {
+            "DustinLeblanc\\Autoprefixer\\": "src/"
+        }
+    }
+}
