@@ -2,27 +2,82 @@
 
 namespace DustinLeblanc\Autoprefixer;
 
+use Sabberworm\CSS\Parser;
+
+/**
+ * Class Prefixer
+ * @property  browsers
+ * @package DustinLeblanc\Autoprefixer
+ */
 class Prefixer
 {
+    protected $browsers;
+
+    /**
+     * @param array $browsers
+     */
+    public function __construct(array $browsers)
+    {
+        $this->browsers = $browsers;
+    }
+
+    /**
+     * @param string $css
+     * @return string
+     */
     public function prefix($css)
     {
-        return ":-webkit-full-screen a {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex
-}
-:-moz-full-screen a {
-    display: flex
-}
-:-ms-fullscreen a {
-    display: -ms-flexbox;
-    display: flex
-}
-:fullscreen a {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex
-}";
+        $parser = new Parser($css);
+        $parsedCss = $parser->parse();
+        $prefixedRules = array_map(
+          function ($ruleSet) {
+              return array_filter($ruleSet->getRules(), function ($rule) {
+                  if ($this->needsPrefix($rule)) {
+                      return $this->prefixRule($rule);
+                  }
+              });
+          }, $parsedCss->getAllRuleSets());
+        return $parsedCss->render();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBrowsers()
+    {
+        return $this->browsers;
+    }
+
+    /**
+     * @param mixed $browsers
+     */
+    public function setBrowsers($browsers)
+    {
+        $this->browsers = $browsers;
+    }
+
+    /**
+     * @param $rule
+     *
+     * @return bool
+     */
+    private function needsPrefix($rule)
+    {
+        return in_array($rule, $this->getSupported($this->browsers));
+    }
+
+    /**
+     * @param $rule
+     *
+     * @return array
+     */
+    private function prefixRule($rule)
+    {
+        return [];
+    }
+
+    private function getSupported(array $browsers)
+    {
+        return [];
     }
 }
