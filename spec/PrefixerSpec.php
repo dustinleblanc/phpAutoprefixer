@@ -7,6 +7,11 @@ use Prophecy\Argument;
 
 class PrefixerSpec extends ObjectBehavior
 {
+    function let()
+    {
+        $this->beConstructedWith(['latest 2']);
+    }
+
     function it_is_initializable()
     {
         $this->shouldHaveType('DustinLeblanc\Autoprefixer\Prefixer');
@@ -27,6 +32,14 @@ class PrefixerSpec extends ObjectBehavior
     display: flex
 }
 :fullscreen a {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}");
+        $this->prefix("a {
+    display: flex;
+}")->shouldReturn("a {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
